@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Notification</string>
+    <string name="channel_name">알림이름</string>
+    <string name="channel_id">channel_id</string>
+    <string name="channel_desc">channel_desc</string>
+
+    <string name="noti_title">알림 제목</string>
+    <string name="noti_content">알림 내용</string>
+</resources>
