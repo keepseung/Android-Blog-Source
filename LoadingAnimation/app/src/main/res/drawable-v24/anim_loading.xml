@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+    <item android:drawable="@drawable/loading_a" android:duration="100" />
+    <item android:drawable="@drawable/loading_b" android:duration="100" />
+    <item android:drawable="@drawable/loading_c" android:duration="100" />
+    <item android:drawable="@drawable/loading_d" android:duration="100" />
+    <item android:drawable="@drawable/loading_e" android:duration="100" />
+    <item android:drawable="@drawable/loading_f" android:duration="100" />
+    <item android:drawable="@drawable/loading_g" android:duration="100" />
+    <item android:drawable="@drawable/loading_h" android:duration="100" />
+    <item android:drawable="@drawable/loading_i" android:duration="100" />
+    <item android:drawable="@drawable/loading_j" android:duration="100" />
+    <item android:drawable="@drawable/loading_k" android:duration="100" />
+    <item android:drawable="@drawable/loading_l" android:duration="100" />
+    <item android:drawable="@drawable/loading_m" android:duration="100" />
+</animation-list>
