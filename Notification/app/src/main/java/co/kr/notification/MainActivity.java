@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     Notification notification;
     NotificationManager notificationManager;
-    int ad =0;
+    int ad = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,11 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendNotification();
+                try {
+                    sendNotification();
+                } catch (ExecutionException | InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -59,16 +64,42 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void sendNotification(){
+    private void sendNotification() throws ExecutionException, InterruptedException {
 
         // 새로운 스레이일 경우에만 시작한다.
-        if(thread.getState() == Thread.State.NEW){
+        if (thread.getState() == Thread.State.NEW) {
             thread.start();
 
-        }else{
-            notificationManager.notify(1, notification);
+        } else {
+            notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+            Intent notiIntent = new Intent(MainActivity.this, MainActivity.class);
+            // 새로운 테스크를 생성해 그 안에 액티비티를 추가할 때 사용함
+            // 기존에 해당 테스크가 없으면 새로운 task를 만들면서 생성함
+            notiIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            notiIntent.putExtra("data", "data");
+            // getActivity -> 액티비티를 시작하는 인텐트를 생성함
+            PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 0, notiIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            notification = new NotificationCompat.Builder(getApplicationContext(), getString(R.string.channel_id))
+                    .setSmallIcon(R.drawable.ic_launcher_background)
+                    .setContentTitle(getString(R.string.noti_title))
+                    .setContentText(getString(R.string.noti_content) + ad)
+                        .setLargeIcon(Glide.with(MainActivity.this).asBitmap().load("https://cdn.pixabay.com/photo/2020/01/02/10/52/monk-4735530_960_720.jpg").into(255,255).get())
+                    // 유저가 알림을 클릭하면 알림 리스트에서 자동으로 사라지게 함
+                    .setAutoCancel(true)
+                    .setChannelId(getString(R.string.channel_id))
+                    .setContentIntent(pendingIntent)
+                    .build();
+
+            if (notificationManager != null) {
+                // 알림을 상태바에 보이게 한다.
+                // id 값이 동일해야 별개의 푸시로 오지 않는다. 메세지만 다르게 해서 알림이 온다.
+                notificationManager.notify(1, notification);
+            }
+
         }
-        ad +=1;
+        ad += 1;
     }
 
     Thread thread = new Thread(new Runnable() {
@@ -87,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
                 notification = new NotificationCompat.Builder(getApplicationContext(), getString(R.string.channel_id))
                         .setSmallIcon(R.drawable.ic_launcher_background)
                         .setContentTitle(getString(R.string.noti_title))
-                        .setContentText(getString(R.string.noti_content)+ad)
-                        .setLargeIcon(Glide.with(MainActivity.this).asBitmap().load("https://cdn.pixabay.com/photo/2020/01/02/10/52/monk-4735530_960_720.jpg").into(255,255).get())
+                        .setContentText(getString(R.string.noti_content) + ad)
+                        .setLargeIcon(Glide.with(MainActivity.this).asBitmap().load("https://cdn.pixabay.com/photo/2020/01/02/10/52/monk-4735530_960_720.jpg").into(255, 255).get())
                         // 유저가 알림을 클릭하면 알림 리스트에서 자동으로 사라지게 함
                         .setAutoCancel(true)
                         .setChannelId(getString(R.string.channel_id))
@@ -104,7 +135,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     });
-
 
 
 }
