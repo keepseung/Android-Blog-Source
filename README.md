@@ -1,5 +1,5 @@
 # android-source-snippet
-안드로이드에서 재사용 가능한 소스 코드 모음들 
+https://develop-writing.tistory.com/에서 제공하는 소스 코드 모음
 
 ## 1. appupdate-check
 [플레이스토어 앱 강제로 업데이트하기](https://develop-writing.tistory.com/2)
