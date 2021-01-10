@@ -19,6 +19,7 @@
         android:id="@+id/logoutBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="로그아웃"
         android:layout_marginTop="92dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
