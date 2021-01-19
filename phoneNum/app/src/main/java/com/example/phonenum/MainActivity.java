@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
             TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
 
-            // 권한 확인
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_NUMBERS) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // READ_PHONE_NUMBERS 또는 READ_PHONE_STATE 권한을 허가 받았는지 확인
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_NUMBERS) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
 
                 return;
             }
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "망사업자명 : [ getNetworkOperatorName ] >>> "+tm.getNetworkOperatorName());
             Log.d(TAG, "망사업자명 : [ getSimOperatorName ] >>> "+tm.getSimOperatorName());
             Log.d(TAG, "SIM 카드 상태 : [ getSimState ] >>> "+tm.getSimState());
-            Log.d(TAG, "소프트웨어 버전넘버 : [ getDeviceSoftwareVersion ] >>> "+tm.getDeviceSoftwareVersion());
 
             // 유니크한 단말 번호 >>> Android ID 사용
             @SuppressLint("HardwareIds") String android_id = Settings.Secure.getString(this.getContentResolver(),Settings.Secure.ANDROID_ID);
@@ -57,12 +56,15 @@ public class MainActivity extends AppCompatActivity {
     public boolean chkPermission() {
         // 위험 권한을 모두 승인했는지 여부
         boolean mPermissionsGranted = false;
+        String[] mRequiredPermissions = new String[1];
         // 승인 받기 위한 권한 목록
-        String[] mRequiredPermissions = new String[]{
-                Manifest.permission.READ_PHONE_STATE,
-                Manifest.permission.READ_SMS,
-                Manifest.permission.READ_PHONE_NUMBERS,
-        };
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            mRequiredPermissions[0] = Manifest.permission.READ_PHONE_NUMBERS;
+
+        }else{
+            mRequiredPermissions[0] = Manifest.permission.READ_PRECISE_PHONE_STATE;
+        }
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // 필수 권한을 가지고 있는지 확인한다.
