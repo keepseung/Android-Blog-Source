@@ -36,6 +36,13 @@ https://develop-writing.tistory.com/에서 제공하는 소스 코드 모음
 ## 11. LiveData
 [LiveData 사용해보기](https://develop-writing.tistory.com/44)
 
+## 12. Permission Check
+[LiveData 사용해보기](https://develop-writing.tistory.com/39?category=792763)
+
+## 13. Get PhoneNumber
+[핸드폰 번호 등 기기 정보 가져오기](https://develop-writing.tistory.com/40?category=792763)
+
+
 
 
 
