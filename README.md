@@ -42,7 +42,8 @@ https://develop-writing.tistory.com/에서 제공하는 소스 코드 모음
 ## 13. Get PhoneNumber
 [핸드폰 번호 등 기기 정보 가져오기](https://develop-writing.tistory.com/40?category=792763)
 
-
+## 14 LiveDataDataBinding
+[DataBinding에 ViewModel, LiveData와 함께 사용하기](https://develop-writing.tistory.com/45)
 
 
 
