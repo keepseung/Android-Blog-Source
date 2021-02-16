@@ -45,5 +45,6 @@ https://develop-writing.tistory.com/에서 제공하는 소스 코드 모음
 ## 14 LiveDataDataBinding
 [DataBinding에 ViewModel, LiveData와 함께 사용하기](https://develop-writing.tistory.com/45)
 
-
+## 15. TwoWayBingingEx
+[양방향 데이터 바인딩 사용하기](https://develop-writing.tistory.com/46)
 
