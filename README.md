@@ -48,3 +48,6 @@ https://develop-writing.tistory.com/에서 제공하는 소스 코드 모음
 ## 15. TwoWayBingingEx
 [양방향 데이터 바인딩 사용하기](https://develop-writing.tistory.com/46)
 
+## 15. NavFinal
+[AAC Navigation 사용하기 (이동, 데이터 전송, 애니메이션)](https://develop-writing.tistory.com/48)
+
