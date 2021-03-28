@@ -1,5 +1,5 @@
 # android-source-snippet
-https://develop-writing.tistory.com/에서 제공하는 소스 코드 모음
+https://develop-writing.tistory.com/ 개발 블로그에서 제공하는 소스 코드 모음
 
 ## 1. appupdate-check
 [플레이스토어 앱 강제로 업데이트하기](https://develop-writing.tistory.com/2)
