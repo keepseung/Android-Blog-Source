@@ -42,7 +42,7 @@ https://develop-writing.tistory.com/ 개발 블로그에서 제공하는 소스 
 ## 13. Get PhoneNumber
 [핸드폰 번호 등 기기 정보 가져오기](https://develop-writing.tistory.com/40?category=792763)
 
-## 14 LiveDataDataBinding
+## 14. LiveDataDataBinding
 [DataBinding에 ViewModel, LiveData와 함께 사용하기](https://develop-writing.tistory.com/45)
 
 ## 15. TwoWayBingingEx
@@ -51,3 +51,6 @@ https://develop-writing.tistory.com/ 개발 블로그에서 제공하는 소스 
 ## 16. NavFinal
 [AAC Navigation 사용하기 (이동, 데이터 전송, 애니메이션)](https://develop-writing.tistory.com/48)
 
+## 17. timer
+[소리나는 카운트 다운 타이머 만들기](https://develop-writing.tistory.com/76)
+![timer](https://user-images.githubusercontent.com/68800994/134800381-1a94db4c-db27-4f5e-a3ad-2a12f158b35f.gif)
